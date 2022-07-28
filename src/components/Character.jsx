@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+import { useQuery, gql } from "@apollo/client";
+
 const Character = () => {
   const Contenedor = styled.section`
     display: flex;
     flex-direction: column;
     gap: 30px;
     align-items: center;
-    justify-content: center;
+    margin-top: 3rem;
     height: 100vh;
+    padding: 0px 30px;
   `;
 
   const Mensaje = styled.span`
@@ -18,6 +21,7 @@ const Character = () => {
     padding: 10px;
     border-radius: 1rem;
     background-color: white;
+    text-align: center;
   `;
 
   const Generador = styled.button`
@@ -43,9 +47,51 @@ const Character = () => {
       <Contenedor>
         <Mensaje>No se ha generado ningún personaje</Mensaje>
         <Generador>GENERATE</Generador>
+        <DisplayCharacters />
       </Contenedor>
     </>
   );
 };
+
+const GET_CHARACTERS = gql`
+  query {
+    characters {
+      results {
+        id
+        name
+        image
+        species
+        status
+        type
+        gender
+        origin {
+          name
+        }
+        location {
+          name
+        }
+        created
+      }
+    }
+  }
+`;
+
+function DisplayCharacters() {
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return data.characters.results.map(({ id, name, image }) => (
+    <div key={id}>
+      <h3>{name}</h3>
+      <img width="400" height="400" alt="location-reference" src={`${image}`} />
+      <br />
+      <b>About this location:</b>
+      <p>{name}</p>
+      <br />
+    </div>
+  ));
+}
 
 export default Character;
