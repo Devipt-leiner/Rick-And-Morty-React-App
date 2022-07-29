@@ -1,14 +1,60 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const client = new ApolloClient({
+  uri: "https://rickandmortyapi.com/graphql",
+  cache: new InMemoryCache(),
+});
+
+// const client = ...
+
+client
+  .query({
+    query: gql`
+      query {
+        characters {
+          results {
+            id
+            name
+            image
+            species
+            status
+            type
+            gender
+            origin {
+              name
+            }
+            location {
+              name
+            }
+            created
+          }
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+);
+
+root.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
