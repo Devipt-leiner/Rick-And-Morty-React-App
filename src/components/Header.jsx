@@ -24,9 +24,8 @@ const Header = () => {
           <Logo src="https://www.pngmart.com/files/3/Rick-And-Morty-PNG-Pic.png" />
           Rick Y Morty
         </Imagen>
-
-        <Redes>git linkedin</Redes>
       </Barra>
+
       <BarraDireccion>
         {clicked ? (
           <BotonPersonaje onClick={irInicio}>
@@ -53,25 +52,19 @@ const Barra = styled.div`
   display: flex;
   width: 100%;
   position: fix;
-  background-color: #3b82f6;
-  height: 70px;
+  background-color: #2d6dff;
+  height: 60px;
   justify-content: space-between;
-  padding: 0px 20px;
-`;
-const Redes = styled.div`
-  display: flex;
-  height: 70px;
-  width: 200px;
-  justify-content: center;
-  align-items: center;
 `;
 const Imagen = styled.div`
   font-weight: bold;
   display: flex;
-  height: 70px;
-  width: 300px;
+  height: auto;
+  width: 250px;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 22px;
 `;
 const BarraDireccion = styled.div`
   display: flex;
@@ -79,6 +72,8 @@ const BarraDireccion = styled.div`
   position: fix;
   background-color: #ffffff;
   height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 30px;
 `;
 const BotonPersonaje = styled.div`
   display: flex;
@@ -86,6 +81,8 @@ const BotonPersonaje = styled.div`
   align-items: center;
   height: 100%;
   padding: 0px 20px;
+  border-bottom: 3px solid transparent;
+  transition: 300ms;
   &:hover {
     cursor: pointer;
     border-bottom: 3px solid #888888;
@@ -97,7 +94,8 @@ const BotonPersonajeC = styled.div`
   align-items: center;
   height: 100%;
   padding: 0px 20px;
-  border-bottom: 3px solid #555555;
+  transition: 300ms;
+  border-bottom: 3px solid #2d6dff;
   &:hover {
     cursor: pointer;
     border-bottom: 3px solid #888888;
