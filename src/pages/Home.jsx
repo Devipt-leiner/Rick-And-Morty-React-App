@@ -4,7 +4,6 @@ import { useQuery, gql } from "@apollo/client";
 import Character from "./Character";
 
 const Home = () => {
-  const [historial, setHistorial] = useState([]);
   const [aleatorio, setAleatorio] = useState(1);
 
   const generarP = () => {
