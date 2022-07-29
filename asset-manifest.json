@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css",
+    "main.js": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.a14b6534.js",
+    "index.html": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/index.html",
+    "main.0cecb991.css.map": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css.map",
+    "main.a14b6534.js.map": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.a14b6534.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cecb991.css",
+    "static/js/main.a14b6534.js"
+  ]
+}
