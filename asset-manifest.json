@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css",
-    "main.js": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.a14b6534.js",
-    "index.html": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/index.html",
-    "main.0cecb991.css.map": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css.map",
-    "main.a14b6534.js.map": "/github.com/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.a14b6534.js.map"
+    "main.css": "/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css",
+    "main.js": "/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.04867b25.js",
+    "index.html": "/Devipt-leiner/Rick-And-Morty-React-App/index.html",
+    "main.0cecb991.css.map": "/Devipt-leiner/Rick-And-Morty-React-App/static/css/main.0cecb991.css.map",
+    "main.04867b25.js.map": "/Devipt-leiner/Rick-And-Morty-React-App/static/js/main.04867b25.js.map"
   },
   "entrypoints": [
     "static/css/main.0cecb991.css",
-    "static/js/main.a14b6534.js"
+    "static/js/main.04867b25.js"
   ]
 }
