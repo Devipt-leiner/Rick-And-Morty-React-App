@@ -1,6 +1,6 @@
 {
   "name": "rick-and-morty",
-  "homepage": "github.com/Devipt-leiner/Rick-And-Morty-React-App",
+  "homepage": "https://Devipt-leiner.github.io/Rick-And-Morty-React-App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://$GH_TOKEN@github.com/Devipt-leiner/Rick-And-Morty-React-App"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
