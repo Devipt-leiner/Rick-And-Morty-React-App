@@ -1,67 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
-  const Header = styled.header`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: auto;
-    padding: 7px;
-    background-color: gray;
-    width: 100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    z-index: 100;
-  `;
-
-  const Start = styled.div`
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: white;
-    font-weight: 900;
-    font-size: 24px;
-  `;
-
-  const End = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 10px;
-  `;
-
-  const Button = styled.button`
-    border: none;
-    border-radius: 7px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding: 5px 10px;
-    background-color: white;
-    color: gray;
-    font-weight: bold;
-    transition: 200ms;
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.05);
-    }
-    &:active {
-      transform: scale(1);
-    }
-  `;
+  const [clicked, setClicked] = useState(false);
+  const [clickedP, setClickedP] = useState(true);
+  let navigate = useNavigate();
+  const irInicio = () => {
+    navigate("/");
+    setClicked(false);
+    setClickedP(true);
+  };
+  const irPersonajes = () => {
+    navigate("/characters");
+    setClickedP(false);
+    setClicked(true);
+  };
 
   return (
     <>
-      <Header>
-        <Start>
-          <span>Rick & Morty</span>
-        </Start>
+      <Barra>
+        <Imagen>
+          <Logo src="https://www.pngmart.com/files/3/Rick-And-Morty-PNG-Pic.png" />
+          Rick Y Morty
+        </Imagen>
 
-        <End>
-          <Button>Historial</Button>
-        </End>
-      </Header>
+        <Redes>git linkedin</Redes>
+      </Barra>
+      <BarraDireccion>
+        {clicked ? (
+          <BotonPersonaje onClick={irInicio}>
+            Personaje Aleatorio
+          </BotonPersonaje>
+        ) : (
+          <BotonPersonajeC onClick={irInicio}>
+            Personaje Aleatorio
+          </BotonPersonajeC>
+        )}
+        {clickedP ? (
+          <BotonPersonaje onClick={irPersonajes}>Personajes</BotonPersonaje>
+        ) : (
+          <BotonPersonajeC onClick={irPersonajes}>Personajes</BotonPersonajeC>
+        )}
+      </BarraDireccion>
     </>
   );
 };
 
 export default Header;
+
+const Barra = styled.div`
+  display: flex;
+  width: 100%;
+  position: fix;
+  background-color: #3b82f6;
+  height: 70px;
+  justify-content: space-between;
+  padding: 0px 20px;
+`;
+const Redes = styled.div`
+  display: flex;
+  height: 70px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+`;
+const Imagen = styled.div`
+  font-weight: bold;
+  display: flex;
+  height: 70px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+`;
+const BarraDireccion = styled.div`
+  display: flex;
+  width: 100%;
+  position: fix;
+  background-color: #ffffff;
+  height: 70px;
+`;
+const BotonPersonaje = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  padding: 0px 20px;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #888888;
+  }
+`;
+const BotonPersonajeC = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  padding: 0px 20px;
+  border-bottom: 3px solid #555555;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #888888;
+  }
+`;
+const Logo = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+`;
