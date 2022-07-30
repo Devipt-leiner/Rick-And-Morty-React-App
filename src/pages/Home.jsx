@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { useQuery, gql } from "@apollo/client";
 import Character from "./Character";
+import Sidebar from "../components/Sidebar";
 
 const Home = () => {
+  const [historial, setHistorial] = useState();
   const [aleatorio, setAleatorio] = useState(1);
 
   const generarP = () => {
@@ -25,15 +27,20 @@ const Home = () => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   if (loading) return <Spinner></Spinner>;
   if (error) return <p>Error :(</p>;
-  console.log(data);
   return (
     <ContenedorRamdon>
-      <BotonGenerar onClick={generarP}>Generar Personaje</BotonGenerar>
+      {historial ? <Sidebar /> : null}
+      <BotonesRamdon>
+        <BotonGenerar onClick={generarP}>Generar Personaje</BotonGenerar>
+        <BotonGenerar onClick={() => setHistorial(!historial)}>
+          Historial
+        </BotonGenerar>
+      </BotonesRamdon>
       {
         <Character
           url={data.character.image}
           name={data.character.name}
-          created={data.character.created}
+          created={data.character.created.toString()}
           species={data.character.species}
           gender={data.character.gender}
         />
@@ -110,4 +117,9 @@ const Spinner = styled.div`
   &:after {
     border: 10px solid #ccc;
   }
+`;
+
+const BotonesRamdon = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
